@@ -1,9 +1,29 @@
 aid: memverge
-name: Memverge
-description: Memverge is a company surfaced as a portfolio company of lightspeed-venture-partners and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+name: MemVerge
+description: >-
+  MemVerge is a memory and AI-infrastructure software company whose Memory Machine
+  and Memory Machine Cloud (MMCloud) platforms virtualize and orchestrate memory and
+  compute for AI, high-performance computing, and life-sciences workloads. MMCloud is
+  operated through the OpCenter control plane and the first-party "float" command-line
+  interface, which submits, migrates, checkpoints, and monitors containerized jobs
+  across cloud and on-prem infrastructure, with spot-instance resiliency (SpotSurfer /
+  WaveRider). MemVerge integrates with Nextflow, Snakemake, and Flyte through open-source
+  plugins and SDKs published on its GitHub organization. Originally surfaced as a
+  Lightspeed Venture Partners portfolio company, this profile is enriched from MemVerge's
+  public documentation, CLI reference, and GitHub org.
 url: https://raw.githubusercontent.com/api-evangelist/memverge/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/14129818?v=4
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -12,12 +32,47 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Memory
+- AI Infrastructure
+- GPU
+- Cloud Computing
+- High Performance Computing
+- Kubernetes
+- CLI
+- Nextflow
+- Life Sciences
 apis: []
+common:
+- type: DomainSecurity
+  url: security/memverge-domain-security.yml
+- type: Website
+  url: https://memverge.ai
+- type: Portal
+  url: https://memverge.ai
+- type: Documentation
+  url: https://docs.memverge.com/MMCloud/
+- type: APIReference
+  url: https://docs.memverge.com/MMCloud/3.1/User%20Guide/Reference%20Guides/cli_summary/
+- type: Blog
+  url: https://memverge.ai/blog/
+- type: GitHubOrganization
+  url: https://github.com/MemVerge
+- type: CLI
+  url: cli/memverge-cli.yml
+- type: Packages
+  url: packages/memverge-packages.yml
+- type: SDKs
+  url: packages/memverge-packages.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 3
+  pass: local-v1
