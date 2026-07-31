@@ -1,0 +1,56 @@
+generated: '2026-07-20'
+method: derived
+source: https://github.com/MemVerge
+type: Packages
+provider: MemVerge
+summary: >-
+  First-party MemVerge client libraries, plugins, and CLI integrations that let
+  workflow engines and SDKs submit work to Memory Machine Cloud (MMCloud) via the
+  float CLI / OpCenter. Derived from the MemVerge GitHub organization; registry
+  availability confirmed only where noted.
+packages:
+- name: nf-float
+  ecosystem: nextflow-plugin
+  official: true
+  language: Groovy
+  latest: 0.4.8
+  repo: https://github.com/MemVerge/nf-float
+  registry: https://registry.nextflow.io (Nextflow community plugins; id 'nf-float')
+  description: >-
+    Nextflow executor plugin that submits pipeline tasks to MMCloud through the
+    float CLI. Auto-installed via a plugins { id 'nf-float' } declaration.
+- name: flytekit-float
+  ecosystem: python
+  official: true
+  language: Python
+  repo: https://github.com/MemVerge/flytekit-float
+  registry: null   # not published to PyPI as of 2026-07-20 (pip name 404)
+  description: >-
+    Flyte / flytekit plugin (agent) for running Flyte tasks on MMCloud via float.
+- name: snakemake-float
+  ecosystem: python
+  official: true
+  language: Python
+  repo: https://github.com/MemVerge/snakemake-float
+  registry: null   # not published to PyPI as of 2026-07-20
+  description: >-
+    Snakemake integration that dispatches rules to MMCloud.
+- name: mv-spot-viewer
+  ecosystem: python
+  official: true
+  language: Python
+  repo: https://github.com/MemVerge/mv-spot-viewer
+  registry: null   # not published to PyPI as of 2026-07-20
+  description: >-
+    Spot Viewer extension for monitoring and optimizing spot-instance usage on MMCloud.
+- name: float (CLI binary)
+  ecosystem: cli
+  official: true
+  repo: https://docs.memverge.com/MMCloud/
+  registry: null   # bundled with each MMCloud/OpCenter release, not a public registry
+  description: >-
+    The float command-line binary shipped with each MMCloud release. See cli/memverge-cli.yml.
+notes: >-
+  MemVerge's public GitHub org also hosts forks of upstream projects (vLLM, LMCache,
+  NIXL, containerd, alluxio, qemu, hwloc, ndctl, flyte). Those are not first-party
+  MemVerge client packages and are excluded here.

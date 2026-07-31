@@ -1,0 +1,113 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.memverge.com/MMCloud/3.1/User%20Guide/Reference%20Guides/cli_summary/
+type: CLI
+name: float
+provider: MemVerge
+summary: >-
+  "float" is MemVerge's first-party command-line interface for Memory Machine Cloud
+  (MMCloud). It authenticates to the OpCenter control plane and submits, monitors,
+  migrates, checkpoints, and manages containerized jobs, HPC clusters, images,
+  gateways, storage, and OpCenter configuration.
+docs: https://docs.memverge.com/MMCloud/3.1/User%20Guide/Reference%20Guides/cli_summary/
+distribution:
+  # The float binary ships inside each MMCloud software release alongside the OpCenter
+  # binary; it is downloaded from the OpCenter host after deployment, not from a public
+  # package registry.
+  note: Bundled with each MMCloud release (OpCenter + float binary).
+  shell_completion:
+  - bash
+  - fish
+  - powershell
+  - zsh
+authentication:
+  style: opcenter-login
+  description: >-
+    Authenticate with `float login` against an OpCenter address; credentials via
+    -u/--username and -p/--password, an interactive prompt, or a pre-generated
+    access token (-O/--token).
+  flags:
+  - -a, --address (OpCenter IP / host)
+  - -u, --username
+  - -p, --password
+  - -O, --token
+global_flags:
+- -a, --address
+- -F, --format (json | yaml | table)
+- -u, --username
+- -p, --password
+- -O, --token
+- -v, --verbose
+- --logLevel
+- --scroll
+command_groups:
+- name: Job management
+  commands:
+  - submit (aliases: sbatch)
+  - list (aliases: squeue, ls)
+  - show
+  - cancel (aliases: scancel)
+  - migrate
+  - modify
+  - suspend (aliases: hibernate)
+  - resume (aliases: recover, restore)
+  - rerun (aliases: requeue, resubmit)
+  - promote (aliases: boost)
+- name: Monitoring & status
+  commands:
+  - log
+  - ps
+  - ptop (aliases: qtop)
+  - top
+  - df
+  - status
+- name: HPC cluster management
+  commands:
+  - cluster (add, delete, get, ls, modify, start, stop, reconfigure, nodes, queues)
+  - queue (add, delete, get, jobs, ls, modify)
+  - queues
+  - node (create, delete, info, list)
+  - project (add, delete, get, jobs, list, modify)
+- name: Infrastructure & resources
+  commands:
+  - hosts (aliases: sinfo)
+  - gateway (create, destroy, connect, disconnect, info, list, modify)
+  - image / mi (add, cache, delete, list, tags, update, upload)
+  - storage
+  - snapshot
+- name: Configuration & system
+  commands:
+  - config (cert, get, ldap, list, mset, set)
+  - template
+  - version
+  - release (info, list, migrate, sync, upgrade)
+  - report (download, get, list)
+  - restart (aliases: reboot)
+  - license (acquire, info)
+  - smtp (add, delete, get, list, update)
+  - completion (bash, fish, powershell, zsh)
+- name: Authentication & authorization
+  commands:
+  - login
+  - logout
+  - ldap (add, delete, get, list, update)
+  - nis (add, delete, get, list, update)
+  - secret (get, ls, set, unset)
+  - saml
+- name: User management
+  commands:
+  - user
+  - group (add, delete, info, list, update)
+  - quota-policy (add, delete, info, list, update)
+key_flows:
+- Log in to an OpCenter, submit a containerized job, and monitor it:
+    float login -a <opcenter> -u <user> -p <pass>
+    float submit -i <image> -c <cpu> -m <mem> -j job.sh
+    float show -j <job-id>
+- Migrate a running job to a different VM (spot resiliency) with `float migrate`.
+- Suspend / resume long-running jobs with `float suspend` and `float resume`.
+notes: >-
+  The float CLI is the primary programmatic surface for MMCloud. The OpCenter also
+  exposes a web interface; MemVerge does not publish a public REST/OpenAPI description
+  for the OpCenter control plane, and OpCenter endpoints are per-deployment
+  (customer-hosted), so no baseURL is asserted here.
